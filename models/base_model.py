@@ -1,16 +1,22 @@
 #!/usr/bin/python3
-"""Module that describe the BaseModel class"""
+"""
+Module that describe the BaseModel class
+"""
 import models
 from uuid import uuid4
 from datetime import datetime
 
 
 class BaseModel():
-    """class BaseModel that defines all common attributes/methods
-        for other classes """
+    """
+    class BaseModel that defines all common attributes/methods
+    for other classes
+    """
 
     def __init__(self, *args, **kwargs):
-        """Constructor of BaseModel"""
+        """
+        Constructor of BaseModel
+        """
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
@@ -24,17 +30,23 @@ class BaseModel():
             models.storage.new(self)
 
     def __str__(self):
-        """This method return string representation"""
+        """
+        This method return string representation
+        """
         cls_n = type(self).__name__
         return (f"[{cls_n}] ({self.id}) {self.__dict__}")
 
     def save(self):
-        """This method update attributte with time now"""
+        """
+        This method update attributte with time now
+        """
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """This method return dictionary of all key/value of instance"""
+        """
+        This method return dictionary of all key/value of instance
+        """
         dict_new = self.__dict__.copy()
         dict_new["created_at"] = dict_new['created_at'].isoformat()
         dict_new["updated_at"] = dict_new['updated_at'].isoformat()
