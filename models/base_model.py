@@ -26,11 +26,12 @@ class BaseModel():
 
     def __str__(self):
         """This method return string representation"""
-        return f'[{type(self).__name__}]({self.id}) {self.__dict__}'
+        return f'[{type(self).__name__}] ({self.id}) {self.__dict__}'
 
     def save(self):
         """This method update attributte with time now"""
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """This method return dictionary of all key/value of instance"""
