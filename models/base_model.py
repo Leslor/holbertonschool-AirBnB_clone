@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Module that describe the BaseModel class"""
+import models
 import uuid
 from datetime import datetime
-import models
 
 
 class BaseModel():
@@ -25,8 +25,8 @@ class BaseModel():
 
     def __str__(self):
         """This method return string representation"""
-        clname = self.__class__.__name__
-        return "[{}] ({}) {}".format(clname, self.id, self.__dict__)
+        cls_n = type(self).__name__
+        return f"[{cls_n}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """This method update attributte with time now"""
