@@ -26,7 +26,7 @@ class BaseModel():
 
     def __str__(self):
         """This method return string representation"""
-        return f'[{type(self).__name__}] ({self.id}) {self.__dict__}'
+        return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """This method update attributte with time now"""
