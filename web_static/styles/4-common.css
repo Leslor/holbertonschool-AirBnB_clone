@@ -3,3 +3,9 @@ body {
     font-size: 14px;
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;  
 }
+
+/*Container between header and footer tags, add a div*/
+.container{
+    max-width: 1000px;
+    margin: 30px auto;
+  }
